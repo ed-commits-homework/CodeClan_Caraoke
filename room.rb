@@ -1,12 +1,15 @@
 class Room
-    attr_accessor :guests
+    attr_accessor :guests, :capacity
 
-    def initialize()
+    def initialize(capacity)
         @guests = []
+        @capacity = capacity
     end
 
     def check_in(guest)
-        @guests << guest
+        if @guests.length < @capacity
+            @guests << guest
+        end
     end
 
     def check_out(guest)
