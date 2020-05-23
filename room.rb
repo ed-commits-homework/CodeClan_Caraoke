@@ -34,4 +34,9 @@ class Room
     def current_song_name
         return @playlist[0].name
     end
+    
+    def survey_audience
+        @guests.each { |guest| puts guest.cheer(current_song_name) }
+        return nil
+    end
 end

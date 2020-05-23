@@ -1,10 +1,10 @@
 class Guest
     attr_reader :name, :money, :favorite_song
 
-    def initialize(name, money = 0)
+    def initialize(name, money = 0, favorite_song = "Bohemian Rhapsody")
         @name = name
         @money = money
-        @favorite_song = "Bohemian Rhapsody"
+        @favorite_song = favorite_song
     end
 
     def pay(fee)

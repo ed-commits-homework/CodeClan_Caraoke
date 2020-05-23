@@ -10,8 +10,8 @@ class TestRoom < MiniTest::Test
     def setup
         @guest1 = Guest.new("Alice", 35)
         @guest2 = Guest.new("Bob", 15)
-        @guest3 = Guest.new("Carl", 22)
-        @guest3 = Guest.new("David", 33)
+        @guest3 = Guest.new("Carl", 22, "Sweet Caroline")
+        @guest4 = Guest.new("David", 33)
         @song1 = Song.new("Sweet Caroline", "Neil Diamond", 3.21)
         @song2 = Song.new("Don't Stop Believin'", "Journey", 4.11)
         @song3 = Song.new("Bohemian Rhapsody", "Queen", 5.55)
@@ -84,5 +84,12 @@ class TestRoom < MiniTest::Test
 
     def test_current_song_name
         assert_equal("Sweet Caroline", @room1.current_song_name)
+    end
+
+    def test_audience
+        @room1.check_in(@guest1)
+        @room1.check_in(@guest2)
+        @room1.check_in(@guest3)
+        assert_nil(@room1.survey_audience)
     end
 end
