@@ -4,6 +4,7 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 require_relative("../room")
 require_relative("../guest")
+require_relative("../song")
 
 class TestRoom < MiniTest::Test
     def setup
@@ -11,6 +12,11 @@ class TestRoom < MiniTest::Test
         @guest1 = Guest.new("Alice")
         @guest2 = Guest.new("Bob")
         @guest3 = Guest.new("Carl")
+        @song1 = Song.new("Sweet Caroline", "Neil Diamond", 3.21)
+        @song2 = Song.new("Don't Stop Believin'", "Journey", 4.11)
+        @song3 = Song.new("Bohemian Rhapsody", "Queen", 5.55)
+        @song4 = Song.new("Wonderwall", "Oasis", 4.19)
+        @song5 = Song.new("My Way", "Frank Sinatra", 4.35)
     end
 
     def test_room_initialize
