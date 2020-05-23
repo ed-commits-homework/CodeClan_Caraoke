@@ -23,4 +23,14 @@ class TestGuest < MiniTest::Test
         assert_equal(0, ed.pay(50))
         assert_equal(ed.money, 10)
     end
+
+    def test_guest_cheer
+        ed = Guest.new("Ed", 10)
+        assert_equal("Whoo!", ed.cheer("Bohemian Rhapsody"))
+    end
+
+    def test_guest_cheer_not_favorite
+        ed = Guest.new("Ed", 10)
+        assert_equal("...", ed.cheer("Sweet Caroline"))
+    end
 end
