@@ -81,4 +81,8 @@ class TestRoom < MiniTest::Test
         @room1.check_in(@guest3)
         assert_equal(36, @room1.balance)
     end
+
+    def test_current_song_name
+        assert_equal("Sweet Caroline", @room1.current_song_name)
+    end
 end

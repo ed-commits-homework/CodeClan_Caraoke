@@ -30,4 +30,8 @@ class Room
         @playlist.pop()
         @playlist.unshift(song)
     end
+
+    def current_song_name
+        return @playlist[0].name
+    end
 end
