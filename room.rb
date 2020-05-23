@@ -1,14 +1,19 @@
 class Room
-    attr_accessor :guests, :capacity, :playlist
+    attr_accessor :guests, :capacity, :playlist, :fee
 
-    def initialize(capacity, playlist)
+    def initialize(capacity, playlist, fee = 12)
         @guests = []
         @capacity = capacity
         @playlist = playlist
+        @fee = fee
+    end
+
+    def has_capacity
+        @guests.length < @capacity
     end
 
     def check_in(guest)
-        if @guests.length < @capacity
+        if has_capacity && guest.pay(@fee) == @fee
             @guests << guest
         end
     end
