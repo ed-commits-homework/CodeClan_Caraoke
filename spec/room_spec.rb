@@ -17,7 +17,7 @@ class TestRoom < MiniTest::Test
         @song3 = Song.new("Bohemian Rhapsody", "Queen", 5.55)
         @song4 = Song.new("Wonderwall", "Oasis", 4.19)
         @song5 = Song.new("My Way", "Frank Sinatra", 4.35)
-        @songs = [@song1,@song2,@song3,@song4,@song5]
+        @songs = [@song1,@song2,@song3]
         @room1 = Room.new(3, @songs)
     end
 
@@ -67,5 +67,11 @@ class TestRoom < MiniTest::Test
         @room1.check_in(@guest3)
         @room1.check_in(@guest4)
         assert_equal(3, @room1.guests.length)
+    end
+
+    def test_add_song
+        @room1.add_song(@song4)
+        assert_equal(3, @room1.playlist.length)
+        assert_equal(true, @room1.playlist.include?(@song4))
     end
 end

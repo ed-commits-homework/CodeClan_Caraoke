@@ -16,4 +16,9 @@ class Room
     def check_out(guest)
         @guests.delete(guest)
     end
+
+    def add_song(song)
+        @playlist.pop()
+        @playlist.unshift(song)
+    end
 end
