@@ -74,4 +74,11 @@ class TestRoom < MiniTest::Test
         assert_equal(3, @room1.playlist.length)
         assert_equal(true, @room1.playlist.include?(@song4))
     end
+
+    def test_check_in__check_balance
+        @room1.check_in(@guest1)
+        @room1.check_in(@guest2)
+        @room1.check_in(@guest3)
+        assert_equal(36, @room1.balance)
+    end
 end
